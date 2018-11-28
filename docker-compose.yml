@@ -1,0 +1,28 @@
+version: "3"
+services:
+  web:
+    image: rooharrigan/api-testing:part1b
+    ports:
+      - "4000:3000"
+    depends_on:
+      - db
+    environment:
+      MYSQL_USER: root
+      MYSQL_HOST: db
+      MYSQL_PASSWORD: root
+      MYSQL_DATABASE: mutiny
+  db:
+    image: mysql:5
+    ports:
+      - "3200:3306"
+    volumes:
+      - "/home/docker/data:/data"
+    restart: always
+        environment:
+      MYSQL_USER: root
+      MYSQL_HOST: db
+      MYSQL_PASSWORD: root
+      MYSQL_DATABASE: mutiny
+volumes:
+  db_data:
+
