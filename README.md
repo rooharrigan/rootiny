@@ -12,3 +12,9 @@ install ngrok and run `ngrok http 3000`
 run `npm start`
 check out the app running on `localhost:3000`
 postman to `ngrok.whatever.io/track` with appropriate params (get the link from ngrok) to see the post routes
+
+# Docker stuff you probably want
+1. Pull the 5.5 image onto your local machine (mysql5.5)
+`docker pull mysql/mysql-server:5.5`
+2. Deploy the container with user/password:
+`docker run --name=mutiny -u root -e MYSQL_ROOT_PASSWORD=root -d mysql/mysql-server:5.5`

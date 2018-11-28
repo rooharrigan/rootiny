@@ -9,16 +9,16 @@
     "migrationsRun": true,
     "logging": false,
     "entities": [
-       "src/entity/*.js",
-       "dist/entity/**/*.js"
+       "src/entities/*.js",
+       "dist/entities/**/*.js"
     ],
     "migrations": [
-      "src/migration/*.js",
-      "dist/migration/**/*.js"
+      "src/migrations/*.js",
+      "dist/migrations/**/*.js"
     ],
     "subscribers": [
-      "src/migration/*.js",
-      "dist/migration/**/*.js"
+      "src/subscribers/*.js",
+      "dist/subscribers/**/*.js"
     ],
     "cli": {
        "entitiesDir": "src/entity",

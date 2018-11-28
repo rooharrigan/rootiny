@@ -1,26 +1,15 @@
 import * as Koa from 'koa';
 import * as Router from 'koa-router';
 import * as Logger from 'koa-logger';
-import { pipeline } from 'stream';
 import { greetVisitor } from './lib/lib_validate';
 import { validate_token, validate_event_type } from './lib/lib_validate';
 import { ApiTrackInputs, TrackEventType, TrackEventPageViewPayload, TrackEventUserPayload } from './types/types_logic';
-import { userInfo } from 'os';
 import { page_views_main } from './lib/lib_page_views';
-import { QueryError, RowDataPacket, FieldPacket, OkPacket} from 'mysql2';
 import 'reflect-metadata';
-import { ConnectionOptions, createConnection } from 'typeorm';
-import { PageView } from './entities/ud_page_views';
-import { getPool } from './db/db_client';
-import * as appConfig from '../config/app_config';
+import * as config from 'config';
 
+const env = require('dotenv').config;
 
-/*
-* Start the database
-*/ 
-createConnection(appConfig.dbOptions).then(async connection =>{
-    console.log("Connected to db");
-}).catch(error => console.log("TypeORM connection error: ", error));
 
 /*
 * Configure app helpers
@@ -44,6 +33,8 @@ if (process.env.NODE_ENV == "development") {
 router.get('/', async (ctx, next) => {
     let visitor = "Roo!";
     ctx.body = greetVisitor(visitor);
+
+    console.log(config.get("db.host"));
 });
 
 router.post('/track', koaBody(),

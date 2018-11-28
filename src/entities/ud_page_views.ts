@@ -1,7 +1,7 @@
 import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
 
-@Entity("page_view")
-export class PageView {
+@Entity("page_views")
+export class PageViews {
     @PrimaryGeneratedColumn()
     id: number;
 
@@ -17,4 +17,4 @@ export class PageView {
     duration_ms: number;
 }
 
-export default PageView;
+export default PageViews;

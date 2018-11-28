@@ -4,8 +4,6 @@ import { VError } from 'verror';
 import { Query } from "mysql2/promise";
 import * as uuid from "uuid";
 import { SQL } from "sql-template-strings";
-import { getPool } from '../db/db_client';
-import { PageView } from '../entities/ud_page_views';
 import { Connection } from 'typeorm';
 
 export interface PageView {

@@ -4,7 +4,7 @@ import * as mysql from "mysql2/promise";
 import { Query } from "mysql2/promise";
 import * as config from "config";
 import * as uuid from "uuid";
-import { PageView } from '../entities/ud_page_views';
+
 
 export type Results = [mysql.RowDataPacket[], mysql.FieldPacket[]];
 export type Row = mysql.RowDataPacket;
@@ -53,15 +53,15 @@ export async function single(statement: SQLStatement): Promise<Row | null> {
 */
 export function getPool(): mysql.Pool {
     if (_pool !== null) return _pool;
-  
+
     _pool = mysql.createPool({
-      host: config.get("db.host"),
-      user: config.get("db.user"),
-      password: config.get("db.password"),
-      database: config.get("db.database"),
-      charset: "utf8mb4",
-      connectionLimit: 100
+        host: config.get("db.host"),
+        user: config.get("db.user"),
+        password: config.get("db.password"),
+        database: config.get("db.database"),
+        charset: "utf8mb4"
     });
+
     return _pool;
   }
 

@@ -1,5 +1,5 @@
 // import { PageViewsRepo } from "../repository/page_views_repo";
-// import { PageView } from "../entities/ud_page_views";
+// import { PageViews } from "../entities/ud_page_views";
  
 // export let getAllPageViews = async (req: Request, res: Response) => {
 //     let pvRepo: PageViewsRepo = new PageViewsRepo();
